@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang Nhận Key</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            padding: 20px;
+            text-align: center;
+        }
+        .container {
+            background-color: white;
+            padding: 30px;
+            max-width: 400px;
+            margin: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .message {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Nhận Key từ URL</h1>
+        <div class="message" id="message"></div>
+    </div>
+
+    <script>
+        function getKeyFromURL() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const key = urlParams.get('key');  // Lấy giá trị của tham số 'key' trong URL
+
+            if (key) {
+                document.getElementById("message").innerHTML = `Key của bạn là: ${key}`;
+            } else {
+                document.getElementById("message").innerHTML = "Không tìm thấy key trong URL!";
+            }
+        }
+
+        // Gọi hàm khi trang web được tải
+        getKeyFromURL();
+    </script>
+
+</body>
+</html>
